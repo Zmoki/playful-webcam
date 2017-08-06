@@ -18,17 +18,56 @@ export const output = (value) =>
 
 export const controls = ($control) => q('.controls')[0].append($control)
 
-export const control = (props) => {
-  const {type} = props
+const controlInput = (props) => {
+  const {type, options, name, currentValue, onChange} = props
 
   switch (type) {
-    case 'button':
-      return createElement('button', {
-        type: 'button'
-      })
-      break
-    default:
-      return null
-      break
+  case 'range':
+    return createElement('input', {
+      type: 'range',
+      id: name,
+      min: options.min,
+      max: options.max,
+      step: options.step,
+      value: currentValue,
+      onchange: (e) => onChange(e.target.value),
+    })
+    break
+  case 'select':
+    const $select = createElement('select', {
+      id: name,
+      onchange: (e) => onChange(e.target.value),
+    })
+
+    options.forEach(option => $select.add(createElement('option', {
+      value: option,
+      text: option,
+      selected: option === currentValue,
+    })))
+
+    return $select
+    break
+  case 'check':
+    return createElement('input', {
+      type: 'checkbox',
+      id: name,
+      checked: options === currentValue,
+      onchange: (e) => onChange(e.target.checked),
+    })
+    break
   }
+}
+
+export const control = (props) => {
+  const {name} = props
+  const $p = createElement('p')
+
+  $p.append(createElement('label', {
+    innerText: name,
+    for: name,
+  }))
+
+  $p.append(controlInput(props))
+
+  return $p
 }

@@ -3,7 +3,7 @@ import {video, userMediaError} from './_media.js'
 
 const takePhotoSuccess = (blob) => output(createElement('img', {
   src: URL.createObjectURL(blob),
-  onload: () => URL.revokeObjectURL(this.src)
+  onload: (e) => URL.revokeObjectURL(e.target.src),
 }))
 
 const takePhotoError = (error) => log(error.message)
