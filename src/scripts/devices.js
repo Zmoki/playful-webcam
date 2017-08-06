@@ -1,3 +1,7 @@
+import {log, output} from './_utils.js'
+
 export default () => {
-  document.querySelector('.output').innerText = 'devices'
+  navigator.mediaDevices.enumerateDevices()
+    .then((devices) => devices.forEach((device) => output(`${device.kind}: ${device.label} id = ${device.deviceId}`)))
+    .catch((err) => log(`${err.name}: ${err.message}`))
 }

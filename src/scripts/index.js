@@ -1,7 +1,9 @@
 import devices from './devices.js'
+import streamVideo from './stream-video.js'
 
 const routes = {
   devices,
+  'stream-video': streamVideo,
 }
 
 try {
