@@ -1,0 +1,35 @@
+{
+  "name": "playful-webcam",
+  "version": "0.0.1",
+  "description": "How to work with the webcam in browsers: from start to the crazy stuff.",
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "eslint .",
+    "lint": "npm run lint:js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zmoki/playful-webcam.git"
+  },
+  "keywords": [
+    "webcam",
+    "browser",
+    "getUserMedia",
+    "MediaStream",
+    "video",
+    "audio",
+    "photos",
+    "stream"
+  ],
+  "author": "Zarema Khalilova",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zmoki/playful-webcam/issues"
+  },
+  "homepage": "https://github.com/Zmoki/playful-webcam#readme",
+  "devDependencies": {
+    "eslint": "^4.4.0",
+    "eslint-config-uploadcare": "^1.1.0"
+  }
+}
