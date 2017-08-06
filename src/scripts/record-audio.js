@@ -4,8 +4,8 @@ import {video, record, userMediaError} from './_media.js'
 const userMediaSuccess = (stream) => {
   output(video(stream))
 
-  record(stream, (chunks) => output(createElement('video', {
-    src: URL.createObjectURL(new Blob(chunks, {'type': 'video/webm'})),
+  record(stream, (chunks) => output(createElement('audio', {
+    src: URL.createObjectURL(new Blob(chunks, {'type' : 'audio/ogg; codecs=opus'})),
     controls: true,
   })))
 }
