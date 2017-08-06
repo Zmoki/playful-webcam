@@ -1,11 +1,13 @@
 import devices from './devices.js'
 import streamVideo from './stream-video.js'
 import recordVideo from './record-video.js'
+import takePhoto from './take-photo.js'
 
 const routes = {
   devices,
   'stream-video': streamVideo,
   'record-video': recordVideo,
+  'take-photo': takePhoto,
 }
 
 try {

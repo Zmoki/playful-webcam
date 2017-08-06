@@ -1,6 +1,8 @@
 import {output} from './_utils.js'
 import {video, userMediaError} from './_media.js'
 
+const userMediaSuccess = stream => output(video(stream))
+
 export default () => {
   const constraints = {
     video: true,
@@ -8,6 +10,6 @@ export default () => {
   }
 
   navigator.mediaDevices.getUserMedia(constraints)
-    .then(stream => output(video(stream)))
+    .then(userMediaSuccess)
     .catch(userMediaError)
 }
