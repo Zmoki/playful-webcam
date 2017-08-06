@@ -6,7 +6,10 @@
   "scripts": {
     "lint:js": "eslint .",
     "lint": "npm run lint:js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:js": "rollup -c ./scripts/rollup.config.js",
+    "build:js:w": "npm run build:js -- -w",
+    "start": "npm run build:js && node ./scripts/start.js"
   },
   "repository": {
     "type": "git",
@@ -29,7 +32,11 @@
   },
   "homepage": "https://github.com/Zmoki/playful-webcam#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.13",
     "eslint": "^4.4.0",
-    "eslint-config-uploadcare": "^1.1.0"
+    "eslint-config-uploadcare": "^1.1.0",
+    "ngrok": "^2.2.15",
+    "rollup": "^0.45.2",
+    "rollup-watch": "^4.3.1"
   }
 }
